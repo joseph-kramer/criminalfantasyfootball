@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: 
+  nflteam: 
+  week: 1
+
+two:
+  team: 
+  nflteam: 
+  week: 1

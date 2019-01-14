@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Criminal Fantasy Football</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "jquery", "rails" %>
+  </head>
+
+  <body>
+
+    <%= render 'layouts/header' %>
+
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
+  </body>
+</html>

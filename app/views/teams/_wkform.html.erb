@@ -1,0 +1,26 @@
+<%= form_for(@team) do |f| %>
+<%= render "shared/errors", object: @team %>
+  <fieldset>
+        Pick for week <%= @next_week %>
+        <% if has_wkpick %>
+        <ul>
+          <li>
+          <%= @team.wkpicks.find_by(week: @next_week).nflteam.name %>
+          </li>
+        </ul>
+        <% else %>
+          <ul>
+            <%= f.fields_for :wkpicks do |wkpicks_form| %>
+              <li>
+                <%= wkpicks_form.hidden_field :week, value: @next_week %>
+                <%= wkpicks_form.label :nflteam_id %>
+                <%= wkpicks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name) %>
+              </li>
+          </ul>
+            <% end %>
+          <p>
+            <%= f.submit %>
+          </p>
+        <% end %>
+  </fieldset>
+<% end %>

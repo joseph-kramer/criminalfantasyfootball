@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: MyString
+  is_player: false
+  crime_date: 2018-07-23
+  crime_type: MyString
+  crime_level: 1
+  suspension: false
+  suspension_date: 2018-07-23
+  suspension_games: 1
+  nflteam: one
+
+two:
+  player: MyString
+  is_player: false
+  crime_date: 2018-07-23
+  crime_type: MyString
+  crime_level: 1
+  suspension: false
+  suspension_date: 2018-07-23
+  suspension_games: 1
+  nflteam: two

@@ -1,0 +1,12 @@
+<h1>
+ <%= @team.name %>
+</h1>
+<p>
+ <%= @team.season %>
+</p>
+
+<p>
+  <% @team.teams_picked.each do |pick| %>
+    <li><%= pick.name %></li>
+  <% end %>
+</p>

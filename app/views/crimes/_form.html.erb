@@ -1,0 +1,79 @@
+<%= form_for(@crime) do |f| %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :nflteam_id %>
+        <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id) %>
+      </li>
+      <li>
+        <%= f.label :crime_date %>
+        <%= f.date_field :crime_date %>
+      </li>
+      <li>
+        <%= f.label :player %>
+        <%= f.text_field :player %>
+      </li>
+      <li>
+        <%= f.label :is_player %>
+        <%= f.check_box :is_player %>
+      </li>
+      <li>
+        <%= f.label "Select the type of crime:" %>
+        <%= f.collection_select :characteristic_ids, Characteristic.where(category: "type"), :id, :display_name %>
+      </li>
+      <li>
+        <%= f.label "Choose any details:" %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "accessory"), :id, :display_name %>
+      </li>
+      <li>
+        <%= f.label "Choose any additional details:" %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "additional"), :id, :display_name %>
+      </li>
+      <li>
+        <%= f.label "Choose any people involved:" %>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "people"), :id, :display_name %>
+      </li>
+      <li>
+        <%= f.label :crime_type %>
+        <%= f.text_area :crime_type, :cols => "20", :rows => "3" %>
+      </li>
+      <li>
+        <%= f.label :suspension %>
+        <%= f.check_box :suspension %>
+      </li>
+        <% if @crime.suspension? %>
+          <div id="suspension_details">
+        <% else %>
+          <div id="suspension_details" style="display:none;">
+        <% end %>
+            <li>
+              <%= f.label :suspension_date %>
+              <%= f.date_field :suspension_date, include_blank: true %>
+            </li>
+            <li>
+              <%= f.label :suspension_games %>
+              <%= f.text_field :suspension_games %>
+            </li>
+          </div>
+      <li>
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit %>
+    </p>
+  </fieldset>
+<% end %>
+
+<script type="text/javascript">
+  var checkbox = document.getElementById('crime_suspension');
+  var details_div = document.getElementById('suspension_details');
+  checkbox.onchange = function() {
+     if(this.checked) {
+       details_div.style['display'] = 'block';
+     } else {
+       details_div.style['display'] = 'none';
+     }
+  };
+</script>

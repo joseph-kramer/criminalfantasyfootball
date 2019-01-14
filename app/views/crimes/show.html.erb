@@ -1,0 +1,8 @@
+<ul>
+  <li><%= @crime.player %></li>
+  <li><%= link_to @crime.nflteam.abbreviation, @crime.nflteam %></li>
+  <li><%= @crime.suspension_date %></li>
+  <li><%= @crime.suspension_games %></li>
+</ul>
+
+<%= link_to "Delete", @crime, method: :delete, data: { confirm: 'Are you sure?' } %>

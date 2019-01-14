@@ -1,0 +1,20 @@
+<header>
+  <h1>Editing <%= @team.id %></h1>
+</header>
+
+<p>
+ <%= @team.season %>
+</p>
+<p>
+ Quest: <%= @quest.name %>
+</p>
+<p>
+  <%= @quest.description %>
+</p>
+<p>
+  <% @team.teams_picked.each do |pick| %>
+    <li><%= pick.name %></li>
+  <% end %>
+</p>
+
+<%= render 'wkform' %>

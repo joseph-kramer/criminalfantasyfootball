@@ -1,0 +1,29 @@
+<h1>
+ <%= @nflteam.name %>
+</h1>
+<p>
+ <%= @nflteam.abbreviation %>
+</p>
+
+<table>
+  <tr>
+    <th>Crime date</th>
+    <th>Team</th>
+    <th>Player</th>
+    <th>Crime</th>
+    <th>Suspension Date</th>
+    <th>Games Suspended</th>
+    <th>Points</th>
+  </tr>
+  <% @crimes.each do |crime| %>
+  <tr>
+    <td><%= crime.crime_date.to_s %></td>
+    <td><%= link_to crime.nflteam.abbreviation, crime.nflteam %></td>
+    <td><%= crime.player %></td>
+    <td><%= crime.crime_type %></td>
+    <td><%= crime.suspension_date.to_s %></td>
+    <td><%= crime.suspension_games %></td>
+    <td><%= crime.points %></td>
+  </tr>
+  <% end %>
+</table>

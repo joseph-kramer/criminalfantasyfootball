@@ -1,0 +1,54 @@
+<%= form_for(@team) do |f| %>
+<%= render "shared/errors", object: @team %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </li>
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </li>
+
+        Quest:
+        <ul>
+          <%= f.fields_for :missions do |missions_form| %>
+        <li>
+          <%= missions_form.label :quest_id %>
+          <%= missions_form.select :quest_id, options_from_collection_for_select(@quests, :id, :name) %>
+        </li>
+          <% end %>
+        </ul>
+
+        <div id="quest_div"></div>
+
+        Picks:
+        <ul>
+          <%= f.fields_for :picks do |picks_form| %>
+            <li>
+              <%= picks_form.label :nflteam_id %>
+              <%= picks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name) %>
+            </li>
+          <% end %>
+        </ul>
+    </ol>
+    <p>
+      <%= f.submit %>
+    </p>
+  </fieldset>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    $('#team_missions_attributes_0_quest_id').change(function() {
+       $.ajax({
+         url: "/teams/new",
+         data: {quest_id: $("#team_missions_attributes_0_quest_id option:selected").val()},
+         dataType: "script",
+         method: "get",
+         success: function(r){}
+       });
+     });
+   });
+</script>

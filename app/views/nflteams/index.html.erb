@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Points</th>
+  </tr>
+<% @nflteams.each do |nflteam| %>
+  <tr>
+  <td><%= link_to nflteam.name, nflteam %></td>
+  <td><%= nflteam.total_points %></td>
+  </tr>
+<% end %>
+</table>
