@@ -58,6 +58,7 @@ class TeamsController < ApplicationController
     @quests = Quest.all
     @team = Team.new(team_params)
     @team.user = current_user
+    @team.season = current_season
     if @team.save
       redirect_to teams_path, notice: "Team successfully created!"
     else

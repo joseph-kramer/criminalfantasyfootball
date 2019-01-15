@@ -452,16 +452,50 @@ Crime.create({
 
 Quest.create({
   name: "Supporting Role",
-  description: "have a non player commit a crime (coach, practice squad, member of front office, or fan)"
+  description: "Have a non player commit a crime (coach, practice squad, member of front office, or fan)"
 })
+
+Quest.create({
+  name: "I Shot The Sheriff",
+  description: "Have a player commit a crime involving a gun"
+})
+
+Quest.create({
+  name: "Mulligan",
+  description: "The first team you picked commits no crimes"
+})
+
+Quest.create({
+  name: "Can't Stop Won't Stop",
+  description: "One of your players commits multiple crimes"
+})
+
+Quest.create({
+  name: "International Man of Mystery",
+  description: "One of your players commits a crime outside of the US"
+})
+
+Quest.create({
+  name: "Riding the Bench",
+  description: "You have players totaling more than 15 games supended"
+})
+
+Quest.create({
+  name: "Partners in Crime",
+  description: "A crime involves multiple players"
+})
+
+Quest.create({
+  name: "Narcotics",
+  description: "Have 2 or more teams commit drug related crimes"
+})
+
+=begin
 Quest.create({
   name: "Cookie Jar Criminal",
   description: "have a player commit a theft related crime"
 })
-Quest.create({
-  name: "Narcotics",
-  description: "have 2 or more teams commit drug related crimes"
-})
+
 Quest.create({
   name: "Can't Stop Won't Stop 1",
   description: "have a player suspended for a repeat offense"
@@ -486,10 +520,6 @@ Quest.create({
   name: "I Am The Danger",
   description: "alcohol induced assault"
 })
-Quest.create({
-  name: "I Shot The Sheriff",
-  description: "have a player helmet to helmet multiple times in the season"
-})
 
 Quest.create({
   name: "Substance Abuse",
@@ -500,6 +530,7 @@ Quest.create({
   name: "I Dunno What You Talkin' Bout",
   description: "resisting/deny an obvious infraction"
 })
+=end
 
 # TEAMS
 

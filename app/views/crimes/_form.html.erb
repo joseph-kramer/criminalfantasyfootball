@@ -3,7 +3,7 @@
     <ol>
       <li>
         <%= f.label :nflteam_id %>
-        <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id) %>
+        <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id), { include_blank: true } %>
       </li>
       <li>
         <%= f.label :crime_date %>
@@ -17,9 +17,10 @@
         <%= f.label :is_player %>
         <%= f.check_box :is_player %>
       </li>
+
       <li>
         <%= f.label "Select the type of crime:" %>
-        <%= f.collection_select :characteristic_ids, Characteristic.where(category: "type"), :id, :display_name %>
+        <%= f.collection_select :characteristic_ids, Characteristic.where(category: "type"), :id, :display_name, {}, { :multiple => true, :size => 5 } %>
       </li>
       <li>
         <%= f.label "Choose any details:" %>
@@ -33,9 +34,14 @@
         <%= f.label "Choose any people involved:" %>
         <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "people"), :id, :display_name %>
       </li>
+
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description, :cols => "20", :rows => "3" %>
+      </li>
       <li>
         <%= f.label :crime_type %>
-        <%= f.text_area :crime_type, :cols => "20", :rows => "3" %>
+        <%= f.text_field :crime_type %>
       </li>
       <li>
         <%= f.label :suspension %>

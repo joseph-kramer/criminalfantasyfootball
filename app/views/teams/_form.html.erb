@@ -8,7 +8,7 @@
       </li>
       <li>
         <%= f.label :description %>
-        <%= f.text_area :description %>
+        <%= f.text_area :description, :cols => "50", :rows => "5" %>
       </li>
 
         Quest:
@@ -16,7 +16,7 @@
           <%= f.fields_for :missions do |missions_form| %>
         <li>
           <%= missions_form.label :quest_id %>
-          <%= missions_form.select :quest_id, options_from_collection_for_select(@quests, :id, :name) %>
+          <%= missions_form.select :quest_id, options_from_collection_for_select(@quests, :id, :name), { include_blank: true } %>
         </li>
           <% end %>
         </ul>
@@ -28,7 +28,7 @@
           <%= f.fields_for :picks do |picks_form| %>
             <li>
               <%= picks_form.label :nflteam_id %>
-              <%= picks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name) %>
+              <%= picks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name), { include_blank: true } %>
             </li>
           <% end %>
         </ul>

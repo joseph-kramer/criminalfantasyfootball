@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  def current_season
+    2019
+  end
+
   def current_week
     @schedule = Schedule.all
     x = @schedule.find {|s| Time.now > s.start_date.to_time && Time.now < s.end_date.to_time}

@@ -6,7 +6,7 @@ class CreateCrimes < ActiveRecord::Migration[5.0]
       t.date :crime_date
       t.text :description
       t.string :crime_type
-      t.integer :crime_level, default: 0
+      #t.integer :crime_level, default: 0
       t.boolean :suspension
       t.date :suspension_date
       t.integer :suspension_games, default: 0

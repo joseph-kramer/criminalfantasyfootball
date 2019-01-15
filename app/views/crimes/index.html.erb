@@ -1,27 +1,16 @@
-<p>
-  Crime Level 1 = 5 pts: drug related, petty theft <br />
-  Crime Level 2 = 7 pts: DUI, theft <br />
-  Crime Level 3 = 8 pts: cheating <br />
-  Crime Level 4 = 9 pts: rape, assault, child abuse <br />
-  Crime Level 5 = 10 pts: murder <br />
-  <br />
-  Crime Level -1 = -6 points - sportmanship awards <br />
-  <br />
-  Bonus points: <br />
-  1 points - for every game of a suspension (5 max) <br />
-  5 points - completed mission <br />
-</p>
-
-
 <table border=1>
   <tr>
     <th>Crime date</th>
     <th>Team</th>
-    <th>Player</th>
+    <th>Person</th>
+    <th>Player?</th>
     <th>Crime</th>
+    <th>Description</th>
+    <th>Characteristics</th>
     <th>Suspension Date</th>
     <th>Games Suspended</th>
     <th>Points</th>
+    <th>Source</th>
     <th>Links</th>
   </tr>
   <% @crimes.each do |crime| %>
@@ -29,10 +18,21 @@
     <td><%= crime.crime_date.to_s %></td>
     <td><%= link_to crime.nflteam.abbreviation, crime.nflteam %></td>
     <td><%= crime.player %></td>
+    <td><%= check_box_tag 'player', '1', crime.is_player, :disabled => true %></td>
     <td><%= crime.crime_type %></td>
+    <td><%= crime.description %></td>
+    <td>
+      <% crime.characteristics.each do |char| %>
+        <li><%= char.display_name %></li>
+      <% end %>
+    </td>
     <td><%= crime.suspension_date.to_s %></td>
     <td><%= crime.suspension_games %></td>
     <td><%= crime.points %></td>
+    <td>
+      <% if crime.url != nil && crime.url != "" %>
+      <%= link_to "Link", "http://#{crime.url}" %></td>
+      <% end %>
     <td>
       <%= link_to "Edit", edit_crime_path(crime) %>
       <%= link_to "Delete", crime_path(crime), method: :delete, data: { confirm: 'Are you sure?' } %>
