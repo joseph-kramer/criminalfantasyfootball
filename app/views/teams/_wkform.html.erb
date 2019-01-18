@@ -1,26 +1,53 @@
 <%= form_for(@team) do |f| %>
 <%= render "shared/errors", object: @team %>
+
+<p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</p>
+
+<p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :cols => "50", :rows => "5" %>
+</p>
+
+<p>
+ <%= @team.season %>
+</p>
+<p>
+ Quest: <%= @quest.name %>
+</p>
+<p>
+  <%= @quest.description %>
+</p>
+<p>
+  <% @team.teams_picked.each do |pick| %>
+    <li><%= pick.name %></li>
+  <% end %>
+</p>
+
   <fieldset>
-        Pick for week <%= @next_week %>
-        <% if has_wkpick %>
+        Pick for week <%= next_week %>
+        <% if has_wkpick(next_week) %>
         <ul>
           <li>
-          <%= @team.wkpicks.find_by(week: @next_week).nflteam.name %>
+          <%= @team.wkpicks.find_by(week: next_week).nflteam.name %>
           </li>
         </ul>
         <% else %>
           <ul>
             <%= f.fields_for :wkpicks do |wkpicks_form| %>
               <li>
-                <%= wkpicks_form.hidden_field :week, value: @next_week %>
+                <%= wkpicks_form.hidden_field :week, value: next_week %>
                 <%= wkpicks_form.label :nflteam_id %>
                 <%= wkpicks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name) %>
               </li>
           </ul>
-            <% end %>
-          <p>
-            <%= f.submit %>
-          </p>
+        <% end %>
         <% end %>
   </fieldset>
+    <p>
+      <%= f.submit %>
+    </p>
+
 <% end %>

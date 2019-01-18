@@ -1,20 +1,26 @@
 <header>
-  <h1>Editing <%= @team.id %></h1>
+  <h1>Editing <%= @team.name %></h1>
 </header>
 
-<p>
- <%= @team.season %>
-</p>
-<p>
- Quest: <%= @quest.name %>
-</p>
-<p>
-  <%= @quest.description %>
-</p>
-<p>
-  <% @team.teams_picked.each do |pick| %>
-    <li><%= pick.name %></li>
-  <% end %>
-</p>
-
 <%= render 'wkform' %>
+
+<table>
+<tr>
+<th>Week</th>
+<th>Team</th>
+</tr>
+
+<% 1.upto(next_week) do |number| %>
+<tr>
+  <td><%= number %></td>
+  <td>
+    <% if has_wkpick(number) %>
+    <%= @team.wkpicks.find_by(week: number).nflteam.name %>
+    <% else %>
+    <%= "N/A" %>
+    <% end %>
+  </td>
+</tr>
+<% end %>
+
+</table>

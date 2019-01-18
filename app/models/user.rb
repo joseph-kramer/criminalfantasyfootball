@@ -10,4 +10,8 @@ class User < ApplicationRecord
     user && user.authenticate(password)
   end
 
+  def current_team
+    teams.find_by(season: current_season)
+  end
+
 end

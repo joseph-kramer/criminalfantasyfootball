@@ -7,4 +7,15 @@ class Nflteam < ApplicationRecord
   def total_points
     crimes.sum(&:points)
   end
+
+  def total_suspension_games
+    crimes.sum(&:suspension_games)
+  end
+
+  def has_drug_crime
+    if crimes.any? do |c|
+      c.characteristics.exists? Characteristic.find_by(name: "Drugs (non-PED)").id
+    end
+  end
+
 end

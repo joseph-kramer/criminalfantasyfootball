@@ -6,12 +6,11 @@ class CreateCrimes < ActiveRecord::Migration[5.0]
       t.date :crime_date
       t.text :description
       t.string :crime_type
-      #t.integer :crime_level, default: 0
       t.boolean :suspension
       t.date :suspension_date
       t.integer :suspension_games, default: 0
       t.string :url
-      t.integer :points
+      t.integer :points, default: 0
       t.references :nflteam, foreign_key: true
 
       t.timestamps

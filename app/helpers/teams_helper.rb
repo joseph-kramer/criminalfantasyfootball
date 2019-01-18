@@ -8,8 +8,8 @@ module TeamsHelper
     end
   end
 
-  def has_wkpick
-    if @team.wkpicks.find_by(week: @next_week) != nil
+  def has_wkpick(w)
+    if @team.wkpicks.find_by(week: w) != nil
       true
     else
       false
