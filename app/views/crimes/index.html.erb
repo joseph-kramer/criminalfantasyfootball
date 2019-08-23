@@ -1,5 +1,6 @@
 <table border=1>
   <tr>
+    <th>Date Reported</th>
     <th>Crime date</th>
     <th>Team</th>
     <th>Person</th>
@@ -15,6 +16,7 @@
   </tr>
   <% @crimes.each do |crime| %>
   <tr>
+    <td><%= crime.date_reported.to_s %></td>
     <td><%= crime.crime_date.to_s %></td>
     <td><%= link_to crime.nflteam.abbreviation, crime.nflteam %></td>
     <td><%= crime.player %></td>

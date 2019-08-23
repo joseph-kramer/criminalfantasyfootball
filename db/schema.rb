@@ -21,17 +21,17 @@ ActiveRecord::Schema.define(version: 20190113222820) do
   end
 
   create_table "crimes", force: :cascade do |t|
+    t.date     "date_reported"
     t.string   "player"
     t.boolean  "is_player"
     t.date     "crime_date"
     t.text     "description"
     t.string   "crime_type"
-    t.integer  "crime_level",      default: 0
     t.boolean  "suspension"
     t.date     "suspension_date"
     t.integer  "suspension_games", default: 0
     t.string   "url"
-    t.integer  "points"
+    t.integer  "points",           default: 0
     t.integer  "nflteam_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

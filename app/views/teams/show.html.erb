@@ -6,6 +6,13 @@
 </p>
 
 <p>
+ Quest: <%= @quest.name %> - <%= quest_status %>
+</p>
+<p>
+  <%= @quest.description %>
+</p>
+
+<p>
   <% @team.teams_picked.each do |pick| %>
     <li><%= pick.name %></li>
   <% end %>

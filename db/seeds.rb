@@ -43,110 +43,116 @@ Nflteam.create({name: "Washington Redskins", abbreviation: "WAS", image_file_nam
 # SCHEDULES
 
 Schedule.create({
+week: 0,
+start_date: "19/8/2019",
+end_date: "5/9/2019",
+})
+
+Schedule.create({
 week: 1,
-start_date: "6/9/2018",
-end_date: "12/9/2018",
+start_date: "5/9/2019",
+end_date: "12/9/2019",
 })
 
 Schedule.create({
 week: 2,
-start_date: "13/9/2018",
-end_date: "19/9/2018"
+start_date: "12/9/2019",
+end_date: "19/9/2019"
 })
 
 Schedule.create({
 week: 3,
-start_date: "20/9/2018",
-end_date: "26/9/2018"
+start_date: "19/9/2019",
+end_date: "26/9/2019"
 })
 
 Schedule.create({
 week: 4,
-start_date: "27/9/2018",
-end_date: "3/10/2018"
+start_date: "26/9/2019",
+end_date: "3/10/2019"
 })
 
 Schedule.create({
 week: 5,
-start_date: "4/10/2018",
-end_date: "10/10/2018"
+start_date: "3/10/2019",
+end_date: "10/10/2019"
 })
 
 Schedule.create({
 week: 6,
-start_date: "11/10/2018",
-end_date: "17/10/2018"
+start_date: "10/10/2019",
+end_date: "17/10/2019"
 })
 
 Schedule.create({
 week: 7,
-start_date: "18/10/2018",
-end_date: "24/10/2018"
+start_date: "17/10/2019",
+end_date: "24/10/2019"
 })
 
 Schedule.create({
 week: 8,
-start_date: "25/10/2018",
-end_date: "31/10/2018"
+start_date: "24/10/2019",
+end_date: "31/10/2019"
 })
 
 Schedule.create({
 week: 9,
-start_date: "1/11/2018",
-end_date: "7/11/2018"
+start_date: "31/10/2019",
+end_date: "7/11/2019"
 })
 
 Schedule.create({
 week: 10,
-start_date: "8/11/2018",
-end_date: "14/11/2018"
+start_date: "7/11/2019",
+end_date: "14/11/2019"
 })
 
 Schedule.create({
 week: 11,
-start_date: "15/11/2018",
-end_date: "21/11/2018"
+start_date: "14/11/2019",
+end_date: "21/11/2019"
 })
 
 Schedule.create({
 week: 12,
-start_date: "22/11/2018",
-end_date: "28/11/2018"
+start_date: "21/11/2019",
+end_date: "28/11/2019"
 })
 
 Schedule.create({
 week: 13,
-start_date: "29/11/2018",
-end_date: "5/12/2018"
+start_date: "28/11/2019",
+end_date: "5/12/2019"
 })
 
 Schedule.create({
 week: 14,
-start_date: "6/12/2018",
-end_date: "12/12/2018"
+start_date: "5/12/2019",
+end_date: "12/12/2019"
 })
 
 Schedule.create({
 week: 15,
-start_date: "13/12/2018",
-end_date: "19/12/2018"
+start_date: "12/12/2019",
+end_date: "19/12/2019"
 })
 
 Schedule.create({
 week: 16,
-start_date: "20/12/2018",
-end_date: "26/12/2018"
+start_date: "19/12/2019",
+end_date: "26/12/2019"
 })
 
 Schedule.create({
 week: 17,
-start_date: "27/12/2018",
-end_date: "2/1/2019"
+start_date: "26/12/2019",
+end_date: "2/1/2020"
 })
 
 Schedule.create({
 week: 18,
-start_date: "3/1/2019",
+start_date: "2/1/2020",
 end_date: "1/1/2025"
 })
 

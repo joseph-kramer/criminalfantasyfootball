@@ -1,0 +1,24 @@
+<h1> Rules </h1>
+<h2>Summary</h2>
+<p>
+You pick NFL teams <br>
+You get points for crimes that the players on those teams commit <br>
+</p>
+<h2>Picking Teams</h2>
+<p>
+At the start of the season, you pick 3 different teams that will earn you points all season long <br>
+Each week, you pick a bonus team. Crimes by players on the bonis team will earn you 3x points! <br>
+</p>
+<h2>Earning Points</h2>
+<p>
+Each crime committed will be awarded points depending on what occurred (see Scoring) <br>
+Every game that a player is suspended fora crime is an additional point! <br>
+Additionally, 5 points will be awarded for completing your teams quest <br>
+</p>
+<h2>Scoring</h2>
+
+<ul>
+<% @characteristics.each do |c| %>
+<li><%= c.display_name %></li>
+<% end %>
+</ul>

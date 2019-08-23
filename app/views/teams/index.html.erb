@@ -2,6 +2,8 @@
   League Standings
 </h1>
 
+Current Week: <%= current_week %>
+
 <table>
   <tr>
     <th></th>
@@ -9,6 +11,7 @@
     <th>Team 2</th>
     <th>Team 3</th>
     <th>Points</th>
+    <th>Description</th>
   </tr>
 <% @teams.each do |team| %>
     <% if team.teams_picked.size == 3 %>
@@ -18,6 +21,7 @@
       <td> <%= image_for(team.teams_picked[1]) %>
       <td> <%= image_for(team.teams_picked[2]) %>
       <td> <%= team.total_points %></td>
+      <td> <%= simple_format(team.description) %></td>
       </tr>
     <% end %>
 <% end %>

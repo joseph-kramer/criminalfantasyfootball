@@ -13,9 +13,13 @@ class Nflteam < ApplicationRecord
   end
 
   def has_drug_crime
-    if crimes.any? do |c|
+    crimes.any? do |c|
       c.characteristics.exists? Characteristic.find_by(name: "Drugs (non-PED)").id
     end
+  end
+
+  def get_criminals
+    crimes.pluck(:player)
   end
 
 end

@@ -9,16 +9,44 @@ class Team < ApplicationRecord
     accepts_nested_attributes_for :picks
     accepts_nested_attributes_for :wkpicks
 
+    validates :name, presence: true
+    validates :description, length: { minimum: 10 }
+    validates_associated :picks
+    validates_associated :wkpicks
+    validate :unique_pick
+
+    def unique_pick
+      errors.add(:unique,"You cannot pick the same team twice") if
+        picks.map(&:nflteam) != picks.map(&:nflteam).uniq
+    end
+
     def total_points
+      crime_points+quest_points+week_points
+    end
+
+    def crime_points
       teams_picked.sum(&:total_points)
     end
+
+    def quest_points
+      if is_quest_complete
+        5
+      else
+        0
+      end
+    end
+
+    def week_points
+      3*wkpicks.sum(&:weekly_points)
+    end
+
 
     def ranking
       Team.where('total_points > ?', total_points).count + 1
     end
 
     def is_quest_complete
-        case quests.name
+        case quests.first.name
           when "Supporting Role"
               quest_supporting_role
           when "I Shot The Sheriff"
@@ -38,19 +66,18 @@ class Team < ApplicationRecord
           else
             false
           end
-        end
     end
 
     def quest_supporting_role
-      if teams_picked.any? do |t|
+      teams_picked.any? do |t|
         t.crimes.any? do |c|
-          c.is_player == false
+          c.is_player != true
         end
       end
     end
 
     def quest_shot_sheriff
-      if teams_picked.any? do |t|
+      teams_picked.any? do |t|
         t.crimes.any? do |c|
           c.characteristics.exists? Characteristic.find_by(name: "Gun").id
         end
@@ -58,17 +85,17 @@ class Team < ApplicationRecord
     end
 
     def quest_mulligan
-      if teams_picked.first.crimes.count == 0
+      teams_picked.first.crimes.count == 0
     end
 
     def quest_cant_stop
-      #uniq
-      #make array of names for each team, see if array = array.uniq
-      true
+      teams_picked.any? do |t|
+        t.get_criminals != t.get_criminals.uniq
+      end
     end
 
     def quest_international_man
-      if teams_picked.any? do |t|
+      teams_picked.any? do |t|
         t.crimes.any? do |c|
           c.characteristics.exists? Characteristic.find_by(name: "Outside USA").id
         end
@@ -76,11 +103,11 @@ class Team < ApplicationRecord
     end
 
     def quest_riding_bench
-      if teams_picked.sum(&:total_suspension_games) > 15
+      teams_picked.sum(&:total_suspension_games) > 15
     end
 
     def quest_partner_crime
-      if teams_picked.any? do |t|
+      teams_picked.any? do |t|
         t.crimes.any? do |c|
           c.characteristics.exists? Characteristic.find_by(name: "Teammate Involved").id
         end
@@ -88,9 +115,7 @@ class Team < ApplicationRecord
     end
 
     def quest_narcotics
-      #has_drug_crime
-      #see if 2 or more teams
-      true
+      teams_picked.find_all { |t| t.has_drug_crime == true }.count > 2
     end
 
 

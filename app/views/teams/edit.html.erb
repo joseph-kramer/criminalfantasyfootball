@@ -8,6 +8,7 @@
 <tr>
 <th>Week</th>
 <th>Team</th>
+<th>Points</th>
 </tr>
 
 <% 1.upto(next_week) do |number| %>
@@ -20,6 +21,14 @@
     <%= "N/A" %>
     <% end %>
   </td>
+  <td>
+    <% if has_wkpick(number) %>
+    <%= @team.wkpicks.find_by(week: number).weekly_points %>
+    <% else %>
+    <%= "0" %>
+    <% end %>
+  </td>
+
 </tr>
 <% end %>
 

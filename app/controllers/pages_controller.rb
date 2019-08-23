@@ -5,4 +5,8 @@ class PagesController < ApplicationController
   def faq
   end
 
+  def rules
+    @characteristics = Characteristic.all
+  end
+
 end

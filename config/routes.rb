@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :missions
   get 'about' => 'pages#about'
   get 'faq' => 'pages#faq'
+  get 'rules' => 'pages#rules'
 
   get 'signup' => 'users#new'
   resources :users

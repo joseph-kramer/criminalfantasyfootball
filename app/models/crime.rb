@@ -15,6 +15,30 @@ class Crime < ApplicationRecord
     suspension_games
   end
 
+  def crime_week
+    @schedule = Schedule.all
+    if date_reported != nil
+      x = @schedule.find {|s| date_reported >= s.start_date && date_reported < s.end_date}
+      end
+    if x !=nil
+      x.week
+    else
+      20
+    end
+  end
+
+  def suspension_week
+    @schedule = Schedule.all
+    if suspension_date != nil
+      x = @schedule.find {|s| suspension_date >= s.start_date && suspension_date < s.end_date}
+      end
+    if x !=nil
+      x.week
+    else
+      20
+    end
+  end
+
   def absolute_date
     if crime_date != nil
       crime_date

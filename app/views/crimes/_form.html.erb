@@ -6,6 +6,10 @@
         <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id), { include_blank: true } %>
       </li>
       <li>
+        <%= f.label :date_reported %>
+        <%= f.date_field :date_reported %>
+      </li>
+      <li>
         <%= f.label :crime_date %>
         <%= f.date_field :crime_date %>
       </li>

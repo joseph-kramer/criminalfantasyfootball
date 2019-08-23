@@ -50,7 +50,7 @@ private
 
   def crime_params
     params.require(:crime).
-    permit(:points, :crime_date, :player, :is_player, :description, :crime_type, :crime_level, :suspension, :suspension_date, :suspension_games, :nflteam_id, :url, characteristic_ids: [])
+    permit(:points, :date_reported, :crime_date, :player, :is_player, :description, :crime_type, :crime_level, :suspension, :suspension_date, :suspension_games, :nflteam_id, :url, characteristic_ids: [])
   end
 
 end
