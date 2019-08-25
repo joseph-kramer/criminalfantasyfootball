@@ -13,9 +13,9 @@ class Team < ApplicationRecord
     validates :description, length: { minimum: 10 }
     validates_associated :picks
     validates_associated :wkpicks
-    validate :unique_pick
+    validate :check_unique_pick
 
-    def unique_pick
+    def check_unique_pick
       errors.add(:unique,"You cannot pick the same team twice") if
         picks.map(&:nflteam) != picks.map(&:nflteam).uniq
     end

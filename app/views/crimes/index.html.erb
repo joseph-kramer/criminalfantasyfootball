@@ -12,7 +12,9 @@
     <th>Games Suspended</th>
     <th>Points</th>
     <th>Source</th>
+    <% if current_user_admin? %>
     <th>Links</th>
+    <% end %>
   </tr>
   <% @crimes.each do |crime| %>
   <tr>
@@ -35,13 +37,17 @@
       <% if crime.url != nil && crime.url != "" %>
       <%= link_to "Link", "http://#{crime.url}" %></td>
       <% end %>
-    <td>
-      <%= link_to "Edit", edit_crime_path(crime) %>
-      <%= link_to "Delete", crime_path(crime), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </td>
+      <% if current_user_admin? %>
+        <td>
+          <%= link_to "Edit", edit_crime_path(crime) %>
+          <%= link_to "Delete", crime_path(crime), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      <% end %>
   </tr>
   <% end %>
 </table>
+<% if current_user_admin? %>
 <p>
   <%= link_to "Add new crime", new_crime_path %>
 </p>
+<% end %>
