@@ -1,10 +1,16 @@
+
+
+
+<div class="container">
+
 <h1>
-  League Standings
+League Standings
 </h1>
 
 Current Week: <%= current_week %>
 
-<table>
+<table class="table">
+<thead>
   <tr>
     <th></th>
     <th>Team 1</th>
@@ -13,16 +19,32 @@ Current Week: <%= current_week %>
     <th>Points</th>
     <th>Description</th>
   </tr>
+  </thead>
+  <tbody>
 <% @teams.each do |team| %>
     <% if team.teams_picked.size == 3 %>
       <tr>
       <td><%= link_to team.name, team %></td>
-      <td> <%= image_for(team.teams_picked[0]) %>
-      <td> <%= image_for(team.teams_picked[1]) %>
-      <td> <%= image_for(team.teams_picked[2]) %>
+      <td>
+        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[0].name.to_s %>"><%= image_for(team.teams_picked[0]) %></a>
+      </td>
+      <td>
+        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[1].name.to_s %>"><%= image_for(team.teams_picked[1]) %></a>
+      </td>
+      <td>
+        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[2].name.to_s %>"><%= image_for(team.teams_picked[2]) %></a> 
+      </td>
       <td> <%= team.total_points %></td>
       <td> <%= simple_format(team.description) %></td>
       </tr>
     <% end %>
 <% end %>
+</tbody>
 </table>
+</div>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

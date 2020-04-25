@@ -1,8 +1,18 @@
+<div class="container">
 <h1>
  <%= @team.name %>
 </h1>
+<h3>
+Manager: <%= @team.user.name %>
+</h3>
 <p>
- <%= @team.season %>
+Season: <%= @team.season %>
+</p>
+
+<p>
+  <% @team.teams_picked.each do |pick| %>
+    <li><%= pick.name %></li>
+  <% end %>
 </p>
 
 <p>
@@ -13,7 +23,41 @@
 </p>
 
 <p>
-  <% @team.teams_picked.each do |pick| %>
-    <li><%= pick.name %></li>
-  <% end %>
+  <h3>
+Points: <%= @team.total_points %>
+</h3>
 </p>
+
+<table class="table">
+<thead>
+<tr>
+<th>Week</th>
+<th>Team</th>
+<th>Points</th>
+</tr>
+</thead>
+<tbody>
+<% 1.upto(next_week) do |number| %>
+<tr>
+  <td><%= number %></td>
+  <td>
+    <% if has_wkpick(number) %>
+    <%= @team.wkpicks.find_by(week: number).nflteam.name %>
+    <% else %>
+    <%= "N/A" %>
+    <% end %>
+  </td>
+  <td>
+    <% if has_wkpick(number) %>
+    <%= @team.wkpicks.find_by(week: number).weekly_points %>
+    <% else %>
+    <%= "0" %>
+    <% end %>
+  </td>
+
+</tr>
+<% end %>
+</tbody>
+</table>
+
+</div>

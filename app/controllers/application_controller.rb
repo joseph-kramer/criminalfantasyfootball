@@ -23,6 +23,17 @@ class ApplicationController < ActionController::Base
 
   helper_method :next_week
 
+  def last_updated
+    @crime = Crime.all
+    if (@crime.last == nil)
+      "n/a"
+    else
+      @crime.last.updated_at
+    end
+  end
+
+  helper_method :last_updated
+
   private
 
   def require_signin

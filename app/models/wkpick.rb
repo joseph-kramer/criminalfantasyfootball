@@ -6,7 +6,7 @@ class Wkpick < ApplicationRecord
   validate :check_not_pick
 
   def check_change_past_week
-    errors.add(:changed,"You cannot pick the same weekly team twice in a row") if
+    errors.add(:changed, "You cannot pick the same weekly team twice in a row") if
     team.wkpicks.find_by(week: week-1) != nil && nflteam == team.wkpicks.find_by(week: week-1).nflteam
   end
 

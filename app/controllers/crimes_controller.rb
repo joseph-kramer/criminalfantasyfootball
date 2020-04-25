@@ -5,7 +5,7 @@ class CrimesController < ApplicationController
 
   def index
     #@crimes = Crime.all.order(&:absolute_date)
-    @crimes = Crime.all
+    @crimes = Crime.all.order(:date_reported)
   end
 
   def show

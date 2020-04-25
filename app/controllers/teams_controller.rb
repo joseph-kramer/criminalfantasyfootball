@@ -70,7 +70,7 @@ class TeamsController < ApplicationController
 
     def team_params
       params.require(:team).
-      permit(:name, :description, missions_attributes: [:quest_id], picks_attributes: [:nflteam_id], wkpicks_attributes: [:week, :nflteam_id])
+      permit(:name, :description, missions_attributes: [:id, :quest_id], picks_attributes: [:id, :nflteam_id], wkpicks_attributes: [:id, :week, :nflteam_id])
     end
 
 end

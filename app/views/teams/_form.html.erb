@@ -1,40 +1,37 @@
 <%= form_for(@team) do |f| %>
 <%= render "shared/errors", object: @team %>
   <fieldset>
-    <ol>
-      <li>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </li>
-      <li>
-        <%= f.label :description %><br>
-        <%= f.text_area :description, :cols => "50", :rows => "5" %>
-      </li>
 
-        Quest:
-        <ul>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, :value => "Write a little about why you selected your teams", :cols => "50", :rows => "5", class: "form-control" %>
+      </div>
+
+      <h3>Quest:</h3>
+
           <%= f.fields_for :missions do |missions_form| %>
-        <li>
-          <%= missions_form.label :quest_id %>
-          <%= missions_form.select :quest_id, options_from_collection_for_select(@quests, :id, :name), { include_blank: true } %>
-        </li>
+        <div class="form-group">
+          <%= missions_form.label :quest_id, "Choose a Quest" %>
+          <%= missions_form.select :quest_id, options_from_collection_for_select(@quests, :id, :name), { include_blank: true }, class: "form-control" %>
+        </div>
           <% end %>
-        </ul>
 
         <div id="quest_div"></div>
 
-        Picks:
-        <ul>
+      <h3>Picks:</h3>
           <%= f.fields_for :picks do |picks_form| %>
-            <li>
-              <%= picks_form.label :nflteam_id %>
-              <%= picks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name), { include_blank: true } %>
-            </li>
+            <div class="form-group">
+              <%= picks_form.label :nflteam_id, "Select a Team" %>
+              <%= picks_form.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name), { include_blank: true }, class: "form-control" %>
+            </div>
           <% end %>
-        </ul>
-    </ol>
+
     <p>
-      <%= f.submit %>
+      <%= f.submit "Create Team", class: "btn btn-default" %>
     </p>
   </fieldset>
 <% end %>

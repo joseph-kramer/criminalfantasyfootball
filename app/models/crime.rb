@@ -1,7 +1,10 @@
 class Crime < ApplicationRecord
-  belongs_to :nflteam
+  belongs_to :nflteam, required: true
   has_many :elements, dependent: :destroy
   has_many :characteristics, through: :elements
+
+  validates :nflteam, presence: true
+  #validates :date_reported, presence: true
 
   def total_points
     characteristic_points + suspension_points

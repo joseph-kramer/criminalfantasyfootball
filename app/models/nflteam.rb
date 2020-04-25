@@ -1,5 +1,5 @@
 class Nflteam < ApplicationRecord
-  has_many :crimes, dependent: :destroy
+  has_many :crimes, inverse_of: :nflteam, dependent: :destroy
   has_many :picks, dependent: :destroy
   has_many :wkpicks, dependent: :destroy
   has_many :teams_picked_by, through: :picks, source: :team

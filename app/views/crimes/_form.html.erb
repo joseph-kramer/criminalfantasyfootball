@@ -1,77 +1,79 @@
 <%= form_for(@crime) do |f| %>
+<%= render "shared/errors", object: @crime %>
   <fieldset>
-    <ol>
-      <li>
+    <div class="form-group">
         <%= f.label :nflteam_id %>
-        <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id), { include_blank: true } %>
-      </li>
-      <li>
+        <%= f.select :nflteam_id, options_from_collection_for_select(@nflteams, :id, :name, @crime.nflteam_id), { include_blank: true }, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :date_reported %>
-        <%= f.date_field :date_reported %>
-      </li>
-      <li>
+        <%= f.date_field :date_reported, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :crime_date %>
-        <%= f.date_field :crime_date %>
-      </li>
-      <li>
+        <%= f.date_field :crime_date, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :player %>
-        <%= f.text_field :player %>
-      </li>
-      <li>
+        <%= f.text_field :player, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :is_player %>
-        <%= f.check_box :is_player %>
-      </li>
+        <%= f.check_box :is_player, class: "form-check-label" %>
+    </div>
 
-      <li>
+    <div class="form-group">
         <%= f.label "Select the type of crime:" %>
-        <%= f.collection_select :characteristic_ids, Characteristic.where(category: "type"), :id, :display_name, {}, { :multiple => true, :size => 5 } %>
-      </li>
-      <li>
+        <%= f.collection_select :characteristic_ids, Characteristic.where(category: "type"), :id, :display_name, {}, { :multiple => true, :size => 5, class: "form-control" } %>
+    </div>
+    <div class="form-group">
         <%= f.label "Choose any details:" %>
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "accessory"), :id, :display_name %>
-      </li>
-      <li>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "accessory"), :id, :display_name, class: "form-check-label" %>
+    </div>
+    <div class="form-group">
         <%= f.label "Choose any additional details:" %>
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "additional"), :id, :display_name %>
-      </li>
-      <li>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "additional"), :id, :display_name, class: "form-check-label" %>
+    </div>
+    <div class="form-group">
         <%= f.label "Choose any people involved:" %>
-        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "people"), :id, :display_name %>
-      </li>
-
-      <li>
+        <%= f.collection_check_boxes :characteristic_ids, Characteristic.where(category: "people"), :id, :display_name, class: "form-check-label" %>
+    </div>
+    <div class="form-group">
         <%= f.label :description %>
-        <%= f.text_area :description, :cols => "20", :rows => "3" %>
-      </li>
-      <li>
+        <%= f.text_area :description, :cols => "20", :rows => "3", class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :crime_type %>
-        <%= f.text_field :crime_type %>
-      </li>
-      <li>
+        <%= f.text_field :crime_type, class: "form-control" %>
+    </div>
+    <div class="form-group">
         <%= f.label :suspension %>
-        <%= f.check_box :suspension %>
-      </li>
+        <%= f.check_box :suspension, class: "form-check-label" %>
+    </div>
         <% if @crime.suspension? %>
           <div id="suspension_details">
         <% else %>
           <div id="suspension_details" style="display:none;">
         <% end %>
-            <li>
+            <div class="form-group">
               <%= f.label :suspension_date %>
-              <%= f.date_field :suspension_date, include_blank: true %>
-            </li>
-            <li>
+              <%= f.date_field :suspension_date, include_blank: true, class: "form-control" %>
+            </div>
+            <div class="form-group">
               <%= f.label :suspension_games %>
-              <%= f.text_field :suspension_games %>
-            </li>
+              <%= f.text_field :suspension_games, class: "form-control" %>
+            </div>
           </div>
-      <li>
+      <div class="form-group">
         <%= f.label :url %>
-        <%= f.text_field :url %>
-      </li>
-    </ol>
+        <%= f.text_field :url, class: "form-control" %>
+      </div>
     <p>
-      <%= f.submit %>
+      <% if @crime.new_record? %>
+        <%= f.submit "Create Crime", class: "btn btn-default" %>
+      <% else %>
+        <%= f.submit "Update Crime", class: "btn btn-default" %>
+      <% end %>
     </p>
   </fieldset>
 <% end %>

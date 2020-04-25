@@ -189,6 +189,12 @@ Characteristic.create({
   })
 
 Characteristic.create({
+  name: "Sportsmanship Award",
+  points: -5,
+  category: "type"
+  })
+
+Characteristic.create({
   name: "Drugs (non-PED)",
   points: 1,
   category: "accessory"
@@ -251,6 +257,12 @@ Characteristic.create({
 Characteristic.create({
   name: "Outside USA",
   points: 3,
+  category: "additional"
+  })
+
+Characteristic.create({
+  name: "Gambling",
+  points: 2,
   category: "additional"
   })
 

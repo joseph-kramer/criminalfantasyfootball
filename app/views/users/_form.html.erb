@@ -1,29 +1,27 @@
 <%= form_for(@user) do |f| %>
   <%= render "shared/errors", object: @user %>
   <fieldset>
-    <ol>
-      <li>
+        <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, size: 40, autofocus: true %>
-      </li>
-      <li>
+        <%= f.text_field :name, size: 40, autofocus: true, class: 'form-control' %>
+        </div>
+      <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, size: 40 %>
-      </li>
-      <li>
+        <%= f.email_field :email, size: 40, class: 'form-control' %>
+      </div>
+      <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, size: 40 %>
-      </li>
-      <li>
+        <%= f.password_field :password, size: 40, class: 'form-control' %>
+      </div>
+      <div class="form-group">
         <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confirmation, size: 40 %>
-      </li>
-    </ol>
+        <%= f.password_field :password_confirmation, size: 40, class: 'form-control' %>
+      </div>
     <p>
       <% if @user.new_record? %>
-        <%= f.submit "Create Account" %>
+        <%= f.submit "Create Account", class: "btn btn-default" %>
       <% else %>
-        <%= f.submit "Update Account" %>
+        <%= f.submit "Update Account", class: "btn btn-default" %>
       <% end %>
     </p>
   </fieldset>
