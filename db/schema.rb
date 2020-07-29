@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20190113222820) do
   end
 
   create_table "crimes", force: :cascade do |t|
+    t.integer  "season"
     t.date     "date_reported"
     t.string   "player"
     t.boolean  "is_player"

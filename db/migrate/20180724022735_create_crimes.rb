@@ -1,6 +1,7 @@
 class CreateCrimes < ActiveRecord::Migration[5.0]
   def change
     create_table :crimes do |t|
+      t.integer :season
       t.date :date_reported
       t.string :player
       t.boolean :is_player

@@ -19,6 +19,7 @@ class CrimesController < ApplicationController
 
   def create
     @crime = Crime.new(crime_params)
+    @crime.season = current_season
     @crime.points = @crime.total_points
     if @crime.save
       redirect_to crimes_path, notice: "Crime successfully created!"

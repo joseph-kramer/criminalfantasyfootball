@@ -26,16 +26,16 @@ Current Week: <%= current_week %>
       <tr>
       <td><%= link_to team.name, team %></td>
       <td>
-        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[0].name.to_s %>"><%= image_for(team.teams_picked[0]) %></a>
+        <%= link_to image_tag(team.teams_picked[0].image_file_name, height: '80', width: '80'), team.teams_picked[0], {'data-toggle' => "tooltip", :title => team.teams_picked[0].name.to_s} %>
       </td>
       <td>
-        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[1].name.to_s %>"><%= image_for(team.teams_picked[1]) %></a>
+        <%= link_to image_tag(team.teams_picked[1].image_file_name, height: '80', width: '80'), team.teams_picked[1], {'data-toggle' => "tooltip", :title => team.teams_picked[1].name.to_s} %>
       </td>
       <td>
-        <a href="#" data-toggle="tooltip" title="<%= team.teams_picked[2].name.to_s %>"><%= image_for(team.teams_picked[2]) %></a> 
+        <%= link_to image_tag(team.teams_picked[2].image_file_name, height: '80', width: '80'), team.teams_picked[2], {'data-toggle' => "tooltip", :title => team.teams_picked[2].name.to_s} %>
       </td>
       <td> <%= team.total_points %></td>
-      <td> <%= simple_format(team.description) %></td>
+      <td> <%= simple_format(team.description) %> </td>
       </tr>
     <% end %>
 <% end %>

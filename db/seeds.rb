@@ -306,7 +306,7 @@ Quest.create({
 
 Quest.create({
   name: "Mulligan",
-  description: "The first team you picked commits no crimes"
+  description: "One of the teams you picked commits no crimes"
 })
 
 Quest.create({

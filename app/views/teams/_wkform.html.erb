@@ -20,10 +20,17 @@
 
 <p>
 <h3>Quest</h3>
- Quest: <%= @quest.name %>
+ Quest: <%= @quest.name %> - <%= quest_status %>
 </p>
 <p>
   <%= @quest.description %>
+</p>
+
+<p>
+<h3>
+Points: <%= @team.total_points %>
+</h3>
+Games suspended: <%= @team.suspension_games %>
 </p>
 
 

@@ -10,12 +10,14 @@ Season: <%= @team.season %>
 </p>
 
 <p>
+<h3>Teams</h3>
   <% @team.teams_picked.each do |pick| %>
-    <li><%= pick.name %></li>
+    <li><%= pick.name %> (<%= pick.total_points %> points)</li>
   <% end %>
 </p>
 
 <p>
+<h3>Quest</h3>
  Quest: <%= @quest.name %> - <%= quest_status %>
 </p>
 <p>
@@ -23,9 +25,10 @@ Season: <%= @team.season %>
 </p>
 
 <p>
-  <h3>
+<h3>
 Points: <%= @team.total_points %>
 </h3>
+Games suspended: <%= @team.suspension_games %>
 </p>
 
 <table class="table">

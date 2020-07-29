@@ -24,6 +24,10 @@ class Team < ApplicationRecord
       crime_points+quest_points+week_points
     end
 
+    def suspension_games
+      teams_picked.sum(&:total_suspension_games)
+    end
+
     def crime_points
       teams_picked.sum(&:total_points)
     end
@@ -85,7 +89,7 @@ class Team < ApplicationRecord
     end
 
     def quest_mulligan
-      teams_picked.first.crimes.count == 0
+      teams_picked.any? {|t| t.crimes.count == 0}
     end
 
     def quest_cant_stop
