@@ -12,6 +12,17 @@ class Nflteam < ApplicationRecord
     crimes.sum(&:suspension_games)
   end
 
+  #covid
+  def covid_total
+    covid_count = 0
+      crimes.each do |c|
+        if (c.characteristics.exists? Characteristic.find_by(name: "Covid Case").id)
+          covid_count+=1
+        end
+      end
+    covid_count
+  end
+
   def has_drug_crime
     crimes.any? do |c|
       c.characteristics.exists? Characteristic.find_by(name: "Drugs (non-PED)").id
@@ -21,5 +32,17 @@ class Nflteam < ApplicationRecord
   def get_criminals
     crimes.pluck(:player)
   end
+
+  def nfl_covid_ranking
+    covid_rank = 1
+    allteams = Nflteam.all
+    allteams.each do |n|
+      if (n.covid_total > covid_total)
+        covid_rank+=1
+      end
+    end
+    covid_rank
+  end
+
 
 end

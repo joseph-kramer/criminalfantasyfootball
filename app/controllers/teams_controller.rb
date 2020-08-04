@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
     @nflteams = Nflteam.all
     @next_week = next_week
 
-    @team.wkpicks.build
+    #@team.wkpicks.build
   end
 
   def update
@@ -68,9 +68,10 @@ class TeamsController < ApplicationController
 
   private
 
+#covid
     def team_params
       params.require(:team).
-      permit(:name, :description, missions_attributes: [:id, :quest_id], picks_attributes: [:id, :nflteam_id], wkpicks_attributes: [:id, :week, :nflteam_id])
+      permit(:name, :description, :doomsday, missions_attributes: [:id, :quest_id], picks_attributes: [:id, :nflteam_id], wkpicks_attributes: [:id, :week, :nflteam_id])
     end
 
 end

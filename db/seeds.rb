@@ -31,128 +31,128 @@ Nflteam.create({name: "Minnesota Vikings", abbreviation: "MIN", image_file_name:
 Nflteam.create({name: "New Orleans Saints", abbreviation: "NO", image_file_name: "New_Orleans_Saints.png"})
 Nflteam.create({name: "New York Giants", abbreviation: "NYG", image_file_name: "New_York_Giants.gif"})
 Nflteam.create({name: "New York Jets", abbreviation: "NYJ", image_file_name: "New_York_Jets.png"})
-Nflteam.create({name: "Oakland Raiders", abbreviation: "OAK", image_file_name: "Oakland_Raiders.png"})
+Nflteam.create({name: "Las Vegas Raiders", abbreviation: "LVR", image_file_name: "Oakland_Raiders.png"})
 Nflteam.create({name: "Philadelphia Eagles", abbreviation: "PHI", image_file_name: "Philadelphia_Eagles.png"})
 Nflteam.create({name: "Pittsburgh Steelers", abbreviation: "PIT", image_file_name: "Pittsburgh_Steelers.png"})
 Nflteam.create({name: "San Francisco 49ers", abbreviation: "SF", image_file_name: "San_Francisco_49ers.png"})
 Nflteam.create({name: "Seattle Seahawks", abbreviation: "SEA", image_file_name: "Seattle_Seahawks.png"})
 Nflteam.create({name: "Tampa Bay Bucaneers", abbreviation: "TB", image_file_name: "Tampa_Bay_Buccaneers.png"})
 Nflteam.create({name: "Tennessee Titans", abbreviation: "TEN", image_file_name: "Tennesse_Titans.png"})
-Nflteam.create({name: "Washington Redskins", abbreviation: "WAS", image_file_name: "Washington_Redskins.png"})
+Nflteam.create({name: "Washington ???", abbreviation: "WAS", image_file_name: "Washington_Redskins.png"})
 
 # SCHEDULES
 
 Schedule.create({
 week: 0,
 start_date: "19/8/2019",
-end_date: "5/9/2019",
+end_date: "10/9/2020",
 })
 
 Schedule.create({
 week: 1,
-start_date: "5/9/2019",
-end_date: "12/9/2019",
+start_date: "10/9/2020",
+end_date: "17/9/2020"
 })
 
 Schedule.create({
 week: 2,
-start_date: "12/9/2019",
-end_date: "19/9/2019"
+start_date: "17/9/2020",
+end_date: "24/9/2020"
 })
 
 Schedule.create({
 week: 3,
-start_date: "19/9/2019",
-end_date: "26/9/2019"
+start_date: "24/9/2020",
+end_date: "1/10/2020"
 })
 
 Schedule.create({
 week: 4,
-start_date: "26/9/2019",
-end_date: "3/10/2019"
+start_date: "1/10/2020",
+end_date: "8/10/2020"
 })
 
 Schedule.create({
 week: 5,
-start_date: "3/10/2019",
-end_date: "10/10/2019"
+start_date: "8/10/2020",
+end_date: "15/10/2020"
 })
 
 Schedule.create({
 week: 6,
-start_date: "10/10/2019",
-end_date: "17/10/2019"
+start_date: "15/10/2020",
+end_date: "22/10/2020"
 })
 
 Schedule.create({
 week: 7,
-start_date: "17/10/2019",
-end_date: "24/10/2019"
+start_date: "22/10/2020",
+end_date: "29/10/2020"
 })
 
 Schedule.create({
 week: 8,
-start_date: "24/10/2019",
-end_date: "31/10/2019"
+start_date: "29/10/2020",
+end_date: "5/11/2020"
 })
 
 Schedule.create({
 week: 9,
-start_date: "31/10/2019",
-end_date: "7/11/2019"
+start_date: "5/11/2020",
+end_date: "12/11/2020"
 })
 
 Schedule.create({
 week: 10,
-start_date: "7/11/2019",
-end_date: "14/11/2019"
+start_date: "12/11/2020",
+end_date: "19/11/2020"
 })
 
 Schedule.create({
 week: 11,
-start_date: "14/11/2019",
-end_date: "21/11/2019"
+start_date: "19/11/2020",
+end_date: "26/11/2020"
 })
 
 Schedule.create({
 week: 12,
-start_date: "21/11/2019",
-end_date: "28/11/2019"
+start_date: "26/11/2020",
+end_date: "3/12/2020"
 })
 
 Schedule.create({
 week: 13,
-start_date: "28/11/2019",
-end_date: "5/12/2019"
+start_date: "3/12/2020",
+end_date: "10/12/2020"
 })
 
 Schedule.create({
 week: 14,
-start_date: "5/12/2019",
-end_date: "12/12/2019"
+start_date: "10/12/2020",
+end_date: "17/12/2020"
 })
 
 Schedule.create({
 week: 15,
-start_date: "12/12/2019",
-end_date: "19/12/2019"
+start_date: "17/12/2020",
+end_date: "24/12/2020"
 })
 
 Schedule.create({
 week: 16,
-start_date: "19/12/2019",
-end_date: "26/12/2019"
+start_date: "24/12/2020",
+end_date: "31/12/2020"
 })
 
 Schedule.create({
 week: 17,
-start_date: "26/12/2019",
-end_date: "2/1/2020"
+start_date: "31/12/2020",
+end_date: "7/1/2021"
 })
 
 Schedule.create({
 week: 18,
-start_date: "2/1/2020",
+start_date: "7/1/2021",
 end_date: "1/1/2025"
 })
 
@@ -191,6 +191,13 @@ Characteristic.create({
 Characteristic.create({
   name: "Sportsmanship Award",
   points: -5,
+  category: "type"
+  })
+
+#covid
+Characteristic.create({
+  name: "Covid Case",
+  points: 1,
   category: "type"
   })
 
@@ -334,4 +341,12 @@ Quest.create({
   description: "Have 2 or more teams commit drug related crimes"
 })
 
+#covid
+Quest.create({
+  name: "Sharing is NOT caring",
+  description: "Have the team with the most coronavirus infections"
+})
+
 # TEAMS
+
+# USERS

@@ -4,6 +4,7 @@
   <tr>
     <th>Team</th>
     <th>Points</th>
+    <th>Covid Cases</th>
   </tr>
   </thead>
   <tbody>
@@ -11,6 +12,7 @@
   <tr>
   <td><%= link_to nflteam.name, nflteam %></td>
   <td><%= nflteam.total_points %></td>
+  <td><%= nflteam.covid_total %></td>
   </tr>
 <% end %>
 </tbody>

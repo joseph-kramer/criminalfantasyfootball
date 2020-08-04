@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20190113222820) do
     t.integer  "season"
     t.string   "name"
     t.text     "description"
+    t.date     "doomsday"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

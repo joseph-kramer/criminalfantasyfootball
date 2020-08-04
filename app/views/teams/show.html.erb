@@ -17,6 +17,12 @@ Season: <%= @team.season %>
 </p>
 
 <p>
+<h3>Doomsday</h3>
+Date selected: <%=  @team.doomsday %>
+Countdown: <%= countdown_format(@team.doomsday) %>
+</p>
+
+<p>
 <h3>Quest</h3>
  Quest: <%= @quest.name %> - <%= quest_status %>
 </p>

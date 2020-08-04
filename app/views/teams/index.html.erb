@@ -18,6 +18,7 @@ Current Week: <%= current_week %>
     <th>Team 3</th>
     <th>Points</th>
     <th>Description</th>
+    <th>Coutdown to <br> Doomsday </th>
   </tr>
   </thead>
   <tbody>
@@ -36,6 +37,7 @@ Current Week: <%= current_week %>
       </td>
       <td> <%= team.total_points %></td>
       <td> <%= simple_format(team.description) %> </td>
+      <td> <%= countdown_format(team.doomsday) %> </td>
       </tr>
     <% end %>
 <% end %>

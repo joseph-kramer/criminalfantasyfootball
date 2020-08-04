@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def current_season
-    2019
+    2020
   end
 
   def current_week

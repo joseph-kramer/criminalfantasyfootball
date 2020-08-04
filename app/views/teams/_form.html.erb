@@ -11,6 +11,14 @@
         <%= f.text_area :description, :value => "Write a little about why you selected your teams", :cols => "50", :rows => "5", class: "form-control" %>
       </div>
 
+      <%-#covid -%>
+
+      <h3>When will the NFL cancel the 2020 season:</h3>
+      <div class="form-group">
+          <%= f.label :doomsday do (link_to "Doomsday", rules_path, target: :_blank) end %>
+          <%= f.date_field :doomsday, class: "form-control" %>
+      </div>
+
       <h3>Quest:</h3>
 
           <%= f.fields_for :missions do |missions_form| %>

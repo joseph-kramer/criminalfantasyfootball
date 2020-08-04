@@ -15,4 +15,14 @@ module TeamsHelper
       false
     end
   end
+
+  def countdown_format(d)
+    days_left = (d-Date.today).to_i
+    if (days_left < 0)
+      content_tag(:span, days_left.to_s + " days", style: "color: #f40b0b;")
+    else
+      content_tag(:span, days_left.to_s + " days")
+    end
+  end
+
 end

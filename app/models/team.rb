@@ -44,9 +44,16 @@ class Team < ApplicationRecord
       3*wkpicks.sum(&:weekly_points)
     end
 
+    def covid_points
+        teams_picked.sum(&:covid_total)
+    end
+
+    def covid_ranking
+      #Team.where(':covid_points > ?', covid_points).count + 1
+    end
 
     def ranking
-      Team.where('total_points > ?', total_points).count + 1
+      #Team.where(':total_points > ?', total_points).count + 1
     end
 
     def is_quest_complete
@@ -67,6 +74,8 @@ class Team < ApplicationRecord
               quest_partner_crime
           when "Narcotics"
               quest_narcotics
+          when "Sharing is NOT caring"
+              quest_sharing
           else
             false
           end
@@ -122,7 +131,8 @@ class Team < ApplicationRecord
       teams_picked.find_all { |t| t.has_drug_crime == true }.count > 2
     end
 
-
-
+    def quest_sharing
+      teams_picked.any? {|t| t.nfl_covid_ranking == 1}
+    end
 
 end
