@@ -328,7 +328,7 @@ Quest.create({
 
 Quest.create({
   name: "Riding the Bench",
-  description: "You have players totaling more than 15 games supended"
+  description: "You have players totaling more than 15 games suspended"
 })
 
 Quest.create({
