@@ -14,6 +14,7 @@ class Team < ApplicationRecord
     validates_associated :picks
     validates_associated :wkpicks
     validate :check_unique_pick
+    validates :doomsday, presence: true
 
     def check_unique_pick
       errors.add(:unique,"You cannot pick the same team twice") if
