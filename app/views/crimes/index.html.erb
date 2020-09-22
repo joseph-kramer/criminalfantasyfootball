@@ -42,7 +42,7 @@
     <td><%= crime.points %></td>
     <td>
       <% if crime.url != nil && crime.url != "" %>
-      <%= link_to "Link", "http://#{crime.url}" %></td>
+      <%= link_to "Link", crime.url, target: :_blank %></td>
       <% end %>
       <% if current_user_admin? %>
         <td>

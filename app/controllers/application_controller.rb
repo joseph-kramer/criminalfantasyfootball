@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     if (@crime.last == nil)
       "n/a"
     else
-      @crime.last.updated_at
+      @crime.last.updated_at.in_time_zone('Eastern Time (US & Canada)')
     end
   end
 
