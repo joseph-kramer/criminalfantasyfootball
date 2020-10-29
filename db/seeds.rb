@@ -24,6 +24,7 @@ Nflteam.create({name: "Houston Texans", abbreviation: "HOU", image_file_name: "H
 Nflteam.create({name: "Indianapolis Colts", abbreviation: "IND", image_file_name: "Indianapolis_Colts.png"})
 Nflteam.create({name: "Jacksonville Jaguars", abbreviation: "JAC", image_file_name: "Jacksonville_Jaguars.png"})
 Nflteam.create({name: "Kansas City Chiefs", abbreviation: "KC", image_file_name: "Kansas_City_Chiefs.png"})
+Nflteam.create({name: "Las Vegas Raiders", abbreviation: "LVR", image_file_name: "Oakland_Raiders.png"})
 Nflteam.create({name: "Los Angeles Chargers", abbreviation: "LAC", image_file_name: "Los_Angeles_Chargers.png"})
 Nflteam.create({name: "Los Angeles Rams", abbreviation: "LAR", image_file_name: "Los_Angeles_Rams.png"})
 Nflteam.create({name: "Miami Dolphins", abbreviation: "MIA", image_file_name: "Miami_Dolphins.png"})
@@ -31,14 +32,13 @@ Nflteam.create({name: "Minnesota Vikings", abbreviation: "MIN", image_file_name:
 Nflteam.create({name: "New Orleans Saints", abbreviation: "NO", image_file_name: "New_Orleans_Saints.png"})
 Nflteam.create({name: "New York Giants", abbreviation: "NYG", image_file_name: "New_York_Giants.gif"})
 Nflteam.create({name: "New York Jets", abbreviation: "NYJ", image_file_name: "New_York_Jets.png"})
-Nflteam.create({name: "Las Vegas Raiders", abbreviation: "LVR", image_file_name: "Oakland_Raiders.png"})
 Nflteam.create({name: "Philadelphia Eagles", abbreviation: "PHI", image_file_name: "Philadelphia_Eagles.png"})
 Nflteam.create({name: "Pittsburgh Steelers", abbreviation: "PIT", image_file_name: "Pittsburgh_Steelers.png"})
 Nflteam.create({name: "San Francisco 49ers", abbreviation: "SF", image_file_name: "San_Francisco_49ers.png"})
 Nflteam.create({name: "Seattle Seahawks", abbreviation: "SEA", image_file_name: "Seattle_Seahawks.png"})
 Nflteam.create({name: "Tampa Bay Bucaneers", abbreviation: "TB", image_file_name: "Tampa_Bay_Buccaneers.png"})
 Nflteam.create({name: "Tennessee Titans", abbreviation: "TEN", image_file_name: "Tennesse_Titans.png"})
-Nflteam.create({name: "Washington ???", abbreviation: "WAS", image_file_name: "Washington_Redskins.png"})
+Nflteam.create({name: "Washington Football Team", abbreviation: "WAS", image_file_name: "Washington_Football_Team.png"})
 
 # SCHEDULES
 
@@ -199,6 +199,12 @@ Characteristic.create({
   name: "Covid Case",
   points: 1,
   category: "type"
+  })
+
+Characteristic.create({
+  name: "False Positive Covid Test",
+  points: -0.5,
+  category: "additional"
   })
 
 Characteristic.create({

@@ -14,4 +14,12 @@ class User < ApplicationRecord
     teams.find_by(season: current_season)
   end
 
+  def has_team
+    if current_team != nil
+      true
+    else
+      false
+    end
+  end
+  
 end

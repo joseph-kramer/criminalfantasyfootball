@@ -1,11 +1,33 @@
-<header>
-  <h1><%= pluralize(@users.size, 'User') %></h1>
-</header>
+<div class="container">
 
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
-</ul>
+  <header>
+    <h1>Managers</h1>
+  </header>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Manager</th>
+    <th>Team</th>
+    <th>Email</th>
+    <th>Last Login</th>
+  </tr>
+</thead>
+<tbody>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td>
+      <% if user.has_team %>
+      <%= user.current_team.id %>
+      <% else %>
+      <%= "n/a" %>
+      <% end %>
+    </td>
+    <td><%= user.email %></td>
+    <td>n/a</td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>

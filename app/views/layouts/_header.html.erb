@@ -1,50 +1,66 @@
-<nav>
-  <p>
-    <% if current_user %>
-    <div style="margin-right: 100px;"">
-      <%= link_to 'My Account', current_user,class: "btn btn-default btn-sm" %>
-      <%= link_to 'Sign Out', session_path, method: :delete, class: "btn btn-default btn-sm" %>
-        <span style="float:right;"> Welcome, <%= current_user.name %></span>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<nav class="navbar navbar-default navbar-static-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Fantasy Felonball</a>
     </div>
-    <% else %>
-      <%= link_to 'Sign Up', signup_path, class:"btn btn-default btn-sm" %>
-      <%= link_to 'Sign In', new_session_path, class:"btn btn-default btn-sm" %>
-    <% end %>
-  </p>
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+           League<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'Managers', users_path %></li>
+        </ul>
+        </li>
+      <li>
+        <% if current_user %>
+          <% if current_user.current_team == nil %>
+            <%= link_to 'My Team', new_team_path %>
+          <% else %>
+            <%= link_to 'My Team', edit_team_path(current_user.current_team) %>
+          <% end %>
+          <% else %>
+              <%= link_to 'My Team', new_session_path %>
+          <% end %>
+      </li>
+      <li><%= link_to "Crimes", crimes_path %></li>
+      <li><%= link_to "Power Rankings", nflteams_path %></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+           <span class="glyphicon glyphicon-info-sign"></span><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><%= link_to "Rules", rules_path %></li>
+          <li><%= link_to "FAQ", faq_path %></li>
+          <li><%= link_to "About", about_path %></li>
+        </ul>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <p class="navbar-text"> Welcome, <%= current_user.name %></p>
+        <li><%= link_to current_user do %>
+          My Account
+          <%= content_tag(:span, "", :class => "glyphicon glyphicon-user") %>
+          <% end %></li>
+        <li><%= link_to session_path, method: :delete do %>
+          Sign Out
+          <%= content_tag(:span, "", :class => "glyphicon glyphicon-log-out") %>
+          <% end %></li>
+      <% else %>
+      <li><%= link_to signup_path do %>
+        Sign Up
+        <%= content_tag(:span, "", :class => "glyphicon glyphicon-pencil") %>
+        <% end %></li>
+      <li><%= link_to new_session_path do %>
+        Sign In
+        <%= content_tag(:span, "", :class => "glyphicon glyphicon-log-in") %>
+        <% end %></li>
+      <% end %>
+
+    </ul>
+  </div>
 </nav>
-
-<div class="row">
-
-<div class="col-sm-2">
-<h3>
-<%= link_to "Home", root_path %>
-</h3>
-</div>
-
-<div class="col-sm-2">
-<h3>
-<% if current_user %>
-  <% if current_user.current_team == nil %>
-    <%= link_to 'My Team', new_team_path %>
-  <% else %>
-    <%= link_to 'My Team', edit_team_path(current_user.current_team) %>
-  <% end %>
-<% else %>
-    <%= link_to 'My Team', new_session_path %>
-<% end %>
-</h3>
-</div>
-
-<div class="col-sm-2">
-<h3>
-<%= link_to "Crimes", crimes_path %>
-</h3>
-</div>
-
-<div class="col-sm-2">
-<h3>
-<%= link_to "Power Rankings", nflteams_path %>
-</h3>
-</div>
-
-</div>
