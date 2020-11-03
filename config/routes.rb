@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :picks
   root "teams#index"
   resources :nflteams
+  get 'crimes/top_crimes' => 'crimes#top_crimes'
+  get 'crimes/covid_tracker' => 'crimes#covid_tracker'
   resources :crimes
   resources :teams
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

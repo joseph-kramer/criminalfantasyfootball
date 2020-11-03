@@ -56,3 +56,6 @@ gem 'sassc-rails', '>= 2.1.0'
 platforms :ruby do
   gem 'unicorn'
 end
+
+#Graphics
+gem "chartkick"

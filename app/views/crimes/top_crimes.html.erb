@@ -1,0 +1,65 @@
+<div class="container">
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Date Reported</th>
+    <th>Crime date</th>
+    <th>Week</th>
+    <th>Team</th>
+    <th>Person</th>
+    <th>Player?</th>
+    <th>Crime</th>
+    <th>Description</th>
+    <th>Characteristics</th>
+    <th>Suspension Date</th>
+    <th>Games Suspended</th>
+    <th>Points</th>
+    <th>Source</th>
+    <% if current_user_admin? %>
+    <th>Links</th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% @crimes.each do |crime| %>
+  <tr>
+    <td><%= crime.date_reported.to_s %></td>
+    <td><%= crime.crime_date.to_s %></td>
+    <td><%= crime.crime_week.to_s %></td>
+    <td><%= link_to crime.nflteam.abbreviation, crime.nflteam %></td>
+    <td><%= crime.player %></td>
+    <td><%= check_box_tag 'player', '1', crime.is_player, :disabled => true %></td>
+    <td><%= crime.crime_type %></td>
+    <td><%= crime.description %></td>
+    <td>
+      <% crime.characteristics.each do |char| %>
+        <li><%= char.display_name %></li>
+      <% end %>
+    </td>
+    <td><%= crime.suspension_date.to_s %></td>
+    <td><%= crime.suspension_games %></td>
+    <td><%= crime.points %></td>
+    <td>
+      <% if crime.url != nil && crime.url != "" %>
+      <%= link_to "Link", crime.url, target: :_blank %></td>
+      <% end %>
+      <% if current_user_admin? %>
+        <td>
+          <%= link_to "Edit", edit_crime_path(crime) %>
+          <%= link_to "Delete", crime_path(crime), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      <% end %>
+  </tr>
+  <% end %>
+  </tbody>
+</table>
+<p>
+Last Updated: <%= last_updated %>
+</p>
+<% if current_user_admin? %>
+<p>
+  <%= link_to "Add new crime", new_crime_path %>
+</p>
+<% end %>
+</div>

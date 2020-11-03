@@ -6,6 +6,17 @@ class Crime < ApplicationRecord
   validates :nflteam, presence: true
   #validates :date_reported, presence: true
 
+  def self.covid_hash_crime_week
+    crimearray = Crime.all.find_all {|c| c.is_covid == true}
+    crimehash = {}
+    x = 0
+    while x <= crimearray.max {|a,b| a.crime_week <=> b.crime_week }.crime_week do
+     crimehash[x] = crimearray.find_all {|c| c.crime_week == x}.count
+     x+=1
+    end
+    crimehash
+  end
+
   def total_points
     characteristic_points + suspension_points
   end
@@ -47,6 +58,14 @@ class Crime < ApplicationRecord
       crime_date
     else
       suspension_date
+    end
+  end
+
+  def is_covid
+    if characteristics.exists? Characteristic.find_by(name: "Covid Case").id
+      true
+    else
+      false
     end
   end
 

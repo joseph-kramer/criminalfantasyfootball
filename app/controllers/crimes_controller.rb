@@ -1,7 +1,7 @@
 class CrimesController < ApplicationController
 
-  before_action :require_signin, except: [:index, :show]
-  before_action :require_admin, except: [:index, :show]
+  before_action :require_signin, except: [:index, :show, :top_crimes, :covid_tracker]
+  before_action :require_admin, except: [:index, :show, :top_crimes, :covid_tracker]
 
   def index
     #@crimes = Crime.all.order(&:absolute_date)
@@ -50,6 +50,13 @@ class CrimesController < ApplicationController
      redirect_to crimes_path, alert: "Crime successfully deleted!"
    end
 
+   def top_crimes
+     @crimes = Crime.all.order(points: :desc).limit(10)
+   end
+
+   def covid_tracker
+     @crimes = Crime.all
+   end
 
 private
 
