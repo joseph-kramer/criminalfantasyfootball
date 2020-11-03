@@ -55,6 +55,8 @@ class CrimesController < ApplicationController
    end
 
    def covid_tracker
+     # add line to header when working correctly
+     # <li><%= link_to "Covid Tracker", crimes_covid_tracker_path, {:style=>'color:red;'} %><li>
      @crimes = Crime.all
    end
 
