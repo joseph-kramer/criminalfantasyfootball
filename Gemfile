@@ -58,4 +58,4 @@ platforms :ruby do
 end
 
 #Graphics
-gem "chartkick"
+gem 'chartkick', '~> 2.2.0'
