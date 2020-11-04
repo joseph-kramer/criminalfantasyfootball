@@ -11,3 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( jquery.js )
 #Rails.application.config.assets.precompile += %w( application.scss application.js )
+Rails.application.config.assets.precompile += %w( Chart.bundle.js )
