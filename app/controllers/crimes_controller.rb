@@ -55,7 +55,7 @@ class CrimesController < ApplicationController
    end
 
    def covid_tracker
-     @crimes = Crime.all
+     @crimes = Crime.all.order(:date_reported)
    end
 
 private
