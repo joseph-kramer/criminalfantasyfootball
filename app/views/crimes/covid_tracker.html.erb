@@ -1,5 +1,20 @@
 <div class="container">
 
-<%= column_chart @crimes.covid_hash_crime_week, xtitle: "Week", ytitle: "Cases" %>
+<h1>
+NFL Players Placed on COVID-19 List
+</h1>
+
+<%= column_chart @crimes.covid_hash_crime_week, xtitle: "Week", ytitle: "COVID-19 Cases" %>
+
+
+<ul>
+<% @crimes.each do |crime| %>
+
+<% if crime.is_covid == true && crime.is_player == true %>
+<li><%= "#{crime.crime_date.to_s} (Week #{crime.crime_week.to_s}) | #{crime.player} | #{crime.nflteam.abbreviation}" %></li>
+<% end %>
+
+<% end %>
+</ul>
 
 </div>

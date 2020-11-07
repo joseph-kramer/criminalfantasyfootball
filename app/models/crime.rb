@@ -7,10 +7,10 @@ class Crime < ApplicationRecord
   #validates :date_reported, presence: true
 
   def self.covid_hash_crime_week
-    crimearray = Crime.all.find_all {|c| c.is_covid == true}
+    crimearray = Crime.all.find_all {|c| c.is_covid == true && c.is_player == true}
     crimehash = {}
     x = 0
-    while x <= crimearray.max {|a,b| a.crime_week <=> b.crime_week }.crime_week do
+    while x <= (crimearray.max {|a,b| a.crime_week <=> b.crime_week }.crime_week) do
      crimehash[x] = crimearray.find_all {|c| c.crime_week == x}.count
      x+=1
     end
