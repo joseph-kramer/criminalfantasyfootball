@@ -22,7 +22,8 @@ class Team < ApplicationRecord
     end
 
     def total_points
-      crime_points+quest_points+week_points
+      crime_points+week_points#+quest_points
+      #for page laoding purposes
     end
 
     def suspension_games
